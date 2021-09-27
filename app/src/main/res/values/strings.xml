@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BasicAndroid</string>
+    <string name="wellcomeback">Wellcome Back</string>
+    <string name="sign_to_continue">Sign to continue</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="forget_password">Forget Password ?</string>
+</resources>
