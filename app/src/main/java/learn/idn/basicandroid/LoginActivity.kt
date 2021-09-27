@@ -8,21 +8,41 @@ import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
 
-    var edtEmail: EditText? = null
-    var edtPass: EditText? = null
     lateinit var btnLogin: Button
+
+    lateinit var dataEmail: List<String>
+    lateinit var dataPass: List<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        edtEmail = findViewById(R.id.edt_mail)
-        edtPass = findViewById(R.id.edt_pass)
+        val edtEmail: EditText = findViewById(R.id.edt_mail)
+        val edtPass:EditText = findViewById(R.id.edt_pass)
         btnLogin =  findViewById(R.id.btn_login)
 
+        dataEmail = listOf("kia@gmail.com","harun123@gmail.com")
+        dataPass = listOf("1234", "4321")
+
         btnLogin.setOnClickListener {
-            Toast.makeText(this, "button dipencet", Toast.LENGTH_SHORT).show()
+            if (login(edtEmail.text.toString(), edtPass.text.toString())){
+                Toast.makeText(this, "Akun ditemukan", Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(this, "Akun tidak ditemukan", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
+
+
+
+    fun login(email: String, password: String): Boolean{
+        for(i in dataEmail.indices){
+            if (email == dataEmail[i] && password == dataPass[i]){
+                return true
+            }
+        }
+        return false
+    }
+
 }
